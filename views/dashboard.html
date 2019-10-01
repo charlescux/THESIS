@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="jquery.js"></script>
+    <title>THESIS DEV</title>
+
+    <style>
+        body {
+            font-family: "Arial", Serif;
+            background-color: #f4f4f4;
+            overflow-x: hidden;
+            transition: background-color .5s;
+        }
+
+        .navbar {
+            background-color: #ff4b2b;
+            overflow: hidden;
+            height: 63px;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: black;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .navbar ul {
+            margin: 8px 0 0 0;
+            list-style: none;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .side-nav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #ff4b2b;
+            overflow-x: hidden;
+            padding-top: 60px;
+            transition: 0.5s;
+        }
+
+        .side-nav a {
+            padding: 10px 10px 10px 30px;
+            text-decoration: none;
+            font-size: 22px;
+            color: black;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .side-nav a:hover {
+            color: #fff;
+        }
+
+        .side-nav .btn-close {
+            position: absolute;
+            top: 0;
+            right: 22px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        #topnav {
+            transition: margin-left 0.5s;
+            overflow: hidden;
+        }
+
+        #main {
+            transition: margin-left 0.5s;
+            padding: 20px;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 30%;
+            margin: 0 10px 0 0;
+            display: "inline-block";
+        }
+
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+
+        @media(max-width:568px) {
+            .navbar-nav {
+                display: none
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="topnav">
+        <nav class="navbar">
+            <span class="open-slide">
+                <a href="#" onclick="openSlideMenu()">
+                    <svg width="30" height="30">
+                        <path d="M0,5 30,5" stroke="#fff" stroke-width="5" />
+                        <path d="M0,14 30,14" stroke="#fff" stroke-width="5" />
+                        <path d="M0,23 30,23" stroke="#fff" stroke-width="5" />
+                    </svg>
+                </a>
+            </span>
+
+            <ul class="navbar-nav">
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="#">Add Patient</a></li>
+                <li><a href="#">View Lab Results</a></li>
+                <li><a href="#">Manage Appointments</a></li>
+                <li><a href="#">Questions From Patients</a></li>
+                <li style="float:right"><a href="#">Logout</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div id="side-menu" class="side-nav">
+        <a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
+        <a href="#">Dashboard</a>
+        <a href="#">Add Patient</a>
+        <a href="#">View Lab Results</a>
+        <a href="#">Manage Appointments</a>
+        <a href="#">Questions From Patients</a>
+        <a href="#">Logout</a>
+    </div>
+
+    <div id="main">
+        <div id="appointments">
+            <h2>Nearby Appointments</h2>
+            <table style="float:left">
+                <tr>
+                    <th>Last Name</th>
+                    <th>First Name</th>
+                    <th>Appointment Date</th>
+                </tr>
+                <tr>
+                    <td>Anders</td>
+                    <td>Maria </td>
+                    <td>04-22-2019</td>
+                </tr>
+                <tr>
+                    <td> Chang</td>
+                    <td>Francisco</td>
+                    <td>04-22-2019</td>
+                </tr>
+                <tr>
+                    <td>Mendel</td>
+                    <td>Roland </td>
+                    <td>04-22-2019</td>
+                </tr>
+                <tr>
+                    <td> Bennett</td>
+                    <td>Helen</td>
+                    <td>04-22-2019</td>
+                </tr>
+                <tr>
+                    <td> Tannamuri</td>
+                    <td>Yoshi</td>
+                    <td>04-22-2019</td>
+                </tr>
+                <tr>
+                    <td>Rovelli</td>
+                    <td>Giovanni</td>
+                    <td>04-22-2019</td>
+                </tr>
+            </table>
+        </div>
+
+        <div id="patients">
+            <h2>High Risk Patients</h2>
+            <table>
+                <tr>
+                    <th>Last Name</th>
+                    <th>First Name</th>
+                    <th>Condition</th>
+                </tr>
+                <tr>
+                    <td>Anders</td>
+                    <td>Maria </td>
+                    <td>Gestational Diabetes</td>
+                </tr>
+                <tr>
+                    <td> Chang</td>
+                    <td>Francisco</td>
+                    <td>Gestational Hypertension</td>
+                </tr>
+                <tr>
+                    <td>Mendel</td>
+                    <td>Roland </td>
+                    <td>Others</td>
+                </tr>
+                <tr>
+                    <td> Bennett</td>
+                    <td>Helen</td>
+                    <td>Others</td>
+                </tr>
+                <tr>
+                    <td> Tannamuri</td>
+                    <td>Yoshi</td>
+                    <td>Others</td>
+                </tr>
+                <tr>
+                    <td>Rovelli</td>
+                    <td>Giovanni</td>
+                    <td>Others</td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+
+    <script>
+        function openSlideMenu() {
+            document.getElementById('side-menu').style.width = '250px';
+            document.getElementById("main").style.marginLeft = '250px';
+            document.getElementById("topnav").style.marginLeft = '250px';
+            document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+        }
+
+        function closeSlideMenu() {
+            document.getElementById('side-menu').style.width = '0';
+            document.getElementById("main").style.marginLeft = '0';
+            document.getElementById("topnav").style.marginLeft = '0';
+            document.body.style.backgroundColor = "white";
+        }
+    </script>
+</body>
+
+</html>
